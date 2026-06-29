@@ -12,7 +12,7 @@ locals {
 }
 
 inputs = {
-  name = "main"
+  name = "devops-tutorials"
   cidr = "10.100.0.0/24"
 
   azs = local.region_vars.locals.azs
