@@ -1,0 +1,6 @@
+---
+- name: Apply common configuration to all EC2 instances
+  hosts: ec2
+  become: true
+  roles:
+    - common
