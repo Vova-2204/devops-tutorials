@@ -1,5 +1,5 @@
 terraform {
-  source = "${get_repo_root()}/terragrunt/modules/compute"
+  source = "${get_repo_root()}/terragrunt/modules/bastion"
 }
 
 include "root" {
@@ -8,7 +8,7 @@ include "root" {
 
 locals {
   region_vars = read_terragrunt_config(find_in_parent_folders("region.hcl"))
-  tags        = local.region_vars.locals.tags
+  tags        = merge(local.region_vars.locals.tags, { role = "bastion" })
 }
 
 dependency "vpc" {
