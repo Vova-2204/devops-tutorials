@@ -22,7 +22,7 @@ dependency "vpc" {
 }
 
 inputs = {
-  name          = "devops-tutorials-bastion"
+  name          = "bastion"
   vpc_id        = dependency.vpc.outputs.vpc_id
   subnet_id     = dependency.vpc.outputs.public_subnets[0]
   ami_id        = local.region_vars.locals.default_ami

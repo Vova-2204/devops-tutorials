@@ -8,5 +8,6 @@ locals {
     Region    = "eu-central-1"
     Terraform = "true"
     Owner     = "vladimir.shubodyorov"
+    Project   = "devops-tutorials"
   }
 }

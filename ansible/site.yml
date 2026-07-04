@@ -1,6 +1,12 @@
 ---
-- name: Apply common configuration to all EC2 instances
-  hosts: ec2
+- name: Configure bastion host
+  hosts: bastion
   become: true
   roles:
-    - common
+    - bastion
+
+- name: Configure control plane
+  hosts: controlplane
+  become: true
+  roles:
+    - controlplane

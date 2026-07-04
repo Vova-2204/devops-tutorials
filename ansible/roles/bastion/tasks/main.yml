@@ -1,0 +1,8 @@
+---
+- name: Install bastion tools
+  ansible.builtin.yum:
+    name:
+      - htop
+      - jq
+    state: present
+  when: ansible_os_family == "RedHat"

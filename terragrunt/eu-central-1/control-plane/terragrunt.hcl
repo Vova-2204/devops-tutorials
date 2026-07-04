@@ -8,7 +8,7 @@ include "root" {
 
 locals {
   region_vars = read_terragrunt_config(find_in_parent_folders("region.hcl"))
-  tags        = merge(local.region_vars.locals.tags, { role = "controlplane" })
+  tags        = merge(local.region_vars.locals.tags, { role = "control-plane" })
 }
 
 dependency "vpc" {
@@ -22,7 +22,7 @@ dependency "vpc" {
 }
 
 inputs = {
-  name           = "devops-tutorials-controlplane"
+  name           = "control-plane"
   instance_count = 1
   vpc_id         = dependency.vpc.outputs.vpc_id
   subnet_id      = dependency.vpc.outputs.public_subnets[0]

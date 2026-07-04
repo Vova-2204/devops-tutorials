@@ -1,0 +1,5 @@
+---
+ansible_ssh_common_args: >-
+  {% if 'bastion' not in group_names %}
+  -o ProxyCommand="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ~/.ssh/devops-tutorials.pem -W %h:%p -q {{ ansible_user }}@{{ hostvars[groups['bastion'][0]].ansible_host }}"
+  {% endif %}

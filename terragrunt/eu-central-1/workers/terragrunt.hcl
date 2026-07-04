@@ -22,7 +22,7 @@ dependency "vpc" {
 }
 
 inputs = {
-  name           = "devops-tutorials-workers"
+  name           = "worker"
   instance_count = 2
   vpc_id         = dependency.vpc.outputs.vpc_id
   subnet_id      = dependency.vpc.outputs.public_subnets[0]
