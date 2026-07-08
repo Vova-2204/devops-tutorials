@@ -16,6 +16,7 @@ dependency "vpc" {
 
   mock_outputs = {
     vpc_id         = "vpc-00000000000000000"
+    vpc_cidr_block = "10.100.0.0/24"
     public_subnets = ["subnet-00000000000000000"]
   }
   mock_outputs_allowed_terraform_commands = ["init", "validate", "plan"]
@@ -25,6 +26,7 @@ inputs = {
   name           = "control-plane"
   instance_count = 1
   vpc_id         = dependency.vpc.outputs.vpc_id
+  vpc_cidr       = dependency.vpc.outputs.vpc_cidr_block
   subnet_id      = dependency.vpc.outputs.public_subnets[0]
   ami_id         = local.region_vars.locals.default_ami
   instance_type  = "t3.micro"

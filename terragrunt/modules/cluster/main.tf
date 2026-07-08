@@ -7,7 +7,7 @@ resource "aws_security_group" "this" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["10.100.0.1/32"]
+    cidr_blocks = [var.vpc_cidr]
   }
 
   egress {
@@ -29,5 +29,5 @@ resource "aws_instance" "this" {
   vpc_security_group_ids = [aws_security_group.this.id]
   key_name               = var.key_name
 
-  tags = merge(var.tags, { Name = "${var.name}-${count.index}" })
+  tags = merge(var.tags, { Name = "${var.name}-${count.index + 1}" })
 }

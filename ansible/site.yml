@@ -5,8 +5,8 @@
   roles:
     - bastion
 
-# - name: Configure control plane
-#   hosts: control-plane
-#   become: true
-#   roles:
-#     - control-plane
+- name: Configure control plane
+  hosts: control_plane
+  become: true
+  roles:
+    - control-plane

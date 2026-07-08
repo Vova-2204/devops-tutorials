@@ -13,6 +13,11 @@ variable "vpc_id" {
   description = "VPC ID to launch instances in"
 }
 
+variable "vpc_cidr" {
+  type        = string
+  description = "VPC CIDR block allowed for SSH ingress"
+}
+
 variable "subnet_id" {
   type        = string
   description = "Subnet ID to launch instances in"

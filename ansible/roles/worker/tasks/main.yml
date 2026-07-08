@@ -1,2 +1,4 @@
 ---
-# Mock for new role
+- name: Set hostname
+  ansible.builtin.hostname:
+    name: "node-{{ groups['workers'].index(inventory_hostname) }}"
